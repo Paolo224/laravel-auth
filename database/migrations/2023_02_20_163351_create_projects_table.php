@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('Data_inizio_progetto');
             $table->date('Data_fine_progetto');
             $table->text('Immagine');
-            $table->string('Nome_sviluppatore');
+            $table->string('Nome_sviluppatore', 100);
             $table->timestamps();
         });
     }
