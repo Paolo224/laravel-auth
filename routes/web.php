@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
+use App\Http\Controllers\Admin\ProjectController as ProjectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,8 @@ use App\Http\Controllers\Admin\DashboardController as DashboardController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+route::middleware(['auth', 'verified'])->resource('projects', ProjectController::class);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
