@@ -38,7 +38,7 @@
                     <a href={{route('projects.show', $project->id)}} class="btn bg-dark text-light btn-sm btn-light">
                         <i class="fa-solid fa-eye"></i>
                     </a>
-                    <a href="" class="btn bg-dark text-light btn-sm btn-light">
+                    <a href="{{route('projects.edit', $project->id)}}" class="btn bg-dark text-light btn-sm btn-light">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
                     <a href="http://" class="btn bg-dark text-light btn-sm btn-light">
