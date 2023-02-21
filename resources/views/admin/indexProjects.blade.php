@@ -41,9 +41,13 @@
                     <a href="{{route('projects.edit', $project->id)}}" class="btn bg-dark text-light btn-sm btn-light">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
-                    <a href="http://" class="btn bg-dark text-light btn-sm btn-light">
-                        <i class="fa-regular fa-trash-can"></i>
-                    </a>
+                    <form action="{{route('projects.destroy', $project->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-sm btn-danger">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                    </form>
                 </td>
             </tr>
             @endforeach
