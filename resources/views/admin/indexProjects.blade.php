@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-12 p-2 d-flex justify-content-end">
             <a href="http://" class="btn btn-sm bg-primary text-light">
@@ -35,7 +35,7 @@
                 <td>{{$project->Immagine}}</td>
                 <td>{{$project->Nome_sviluppatore}}</td>
                 <td class="text-center">
-                    <a href="http://" class="btn bg-dark text-light btn-sm btn-light">
+                    <a href={{route('projects.show', $project->id)}} class="btn bg-dark text-light btn-sm btn-light">
                         SHOW
                     </a>
                     <a href="http://" class="btn bg-dark text-light btn-sm btn-light">

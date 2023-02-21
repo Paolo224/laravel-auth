@@ -49,7 +49,8 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $project = Project::findOrFail($id);
+        return view('admin.show', compact('project'));
     }
 
     /**
