@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 p-2 d-flex justify-content-end">
-            <a href="http://" class="btn btn-sm bg-primary text-light">
+            <a href="{{route('projects.create')}}" class="btn btn-sm bg-primary text-light">
                 Nuovo progetto +
             </a>
         </div>
@@ -36,13 +36,13 @@
                 <td>{{$project->Nome_sviluppatore}}</td>
                 <td class="text-center">
                     <a href={{route('projects.show', $project->id)}} class="btn bg-dark text-light btn-sm btn-light">
-                        SHOW
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <a href="" class="btn bg-dark text-light btn-sm btn-light">
+                        <i class="fa-solid fa-pen-to-square"></i>
                     </a>
                     <a href="http://" class="btn bg-dark text-light btn-sm btn-light">
-                        E
-                    </a>
-                    <a href="http://" class="btn bg-dark text-light btn-sm btn-light">
-                        D
+                        <i class="fa-regular fa-trash-can"></i>
                     </a>
                 </td>
             </tr>
