@@ -40,6 +40,34 @@ class ProjectController extends Controller
     {
         $data = $request->all();
 
+        $request->validate(
+            [
+                'Nome_progetto' => 'required|string|min:2|max:150',
+                'Descrizione_progetto' => 'required|string|min:10',
+                'Data_inizio_progetto' => 'required',
+                'Data_fine_progetto' => 'required',
+                'Immagine' => 'url|max:255',
+                'Nome_sviluppatore' => 'string|required|min:2|max:100',
+            ],
+            [
+                'Nome_progetto.required' => 'Il titolo è obbligatorio!!!',
+                'Nome_progetto.string' => 'Il titolo non può essere solo numerico!!!',
+                'Nome_progetto.min' => 'Il titolo è troppo breve, minimo 2 caratteri!!!',
+                'Nome_progetto.max' => 'Il titolo è troppo lungo, massimo 150 caratteri!!!',
+                'Descrizione_progetto.required' => 'La descrizione è obbligatoria!!!',
+                'Descrizione_progetto.string' => 'La descrizione non può essere solo numerica!!!',
+                'Descrizione_progetto.min' => 'La descrizione è troppo breve, minimo 10 caratteri!!!',
+                'Data_inizio_progetto.required' => 'La data è obbligatoria!!!',
+                'Data_fine_progetto.required' => 'La data è obbligatoria!!!',
+                'Immagine.url' => 'Inserire un URL valido!!!',
+                'Immagine.max' => 'L\'URL inserito supera il limite di caratteri!!!',
+                'Nome_sviluppatore.required' => 'Il nome è obbligatorio!!!',
+                'Nome_sviluppatore.string' => 'Il nome non può essere di tipo numerico!!!',
+                'Nome_sviluppatore.min' => 'Il nome è troppo breve, minimo 2 caratteri!!!',
+                'Nome_sviluppatore.max' => 'Il nome è troppo lungo, massimo 100 caratteri!!!',
+            ]
+        );
+
         $newProject = new Project();
         $newProject->Nome_progetto = $data['Nome_progetto'];
         $newProject->Descrizione_progetto = $data['Descrizione_progetto'];
@@ -87,6 +115,35 @@ class ProjectController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+
+        $request->validate(
+            [
+                'Nome_progetto' => 'required|string|min:2|max:150',
+                'Descrizione_progetto' => 'required|string|min:10',
+                'Data_inizio_progetto' => 'required',
+                'Data_fine_progetto' => 'required',
+                'Immagine' => 'url|max:255',
+                'Nome_sviluppatore' => 'string|required|min:2|max:100',
+            ],
+            [
+                'Nome_progetto.required' => 'Il titolo è obbligatorio!!!',
+                'Nome_progetto.string' => 'Il titolo non può essere solo numerico!!!',
+                'Nome_progetto.min' => 'Il titolo è troppo breve, minimo 2 caratteri!!!',
+                'Nome_progetto.max' => 'Il titolo è troppo lungo, massimo 150 caratteri!!!',
+                'Descrizione_progetto.required' => 'La descrizione è obbligatoria!!!',
+                'Descrizione_progetto.string' => 'La descrizione non può essere solo numerica!!!',
+                'Descrizione_progetto.min' => 'La descrizione è troppo breve, minimo 10 caratteri!!!',
+                'Data_inizio_progetto.required' => 'La data è obbligatoria!!!',
+                'Data_fine_progetto.required' => 'La data è obbligatoria!!!',
+                'Immagine.url' => 'Inserire un URL valido!!!',
+                'Immagine.max' => 'L\'URL inserito supera il limite di caratteri!!!',
+                'Nome_sviluppatore.required' => 'Il nome è obbligatorio!!!',
+                'Nome_sviluppatore.string' => 'Il nome non può essere di tipo numerico!!!',
+                'Nome_sviluppatore.min' => 'Il nome è troppo breve, minimo 2 caratteri!!!',
+                'Nome_sviluppatore.max' => 'Il nome è troppo lungo, massimo 100 caratteri!!!',
+            ]
+        );
+
         $newProject = Project::findOrFail($id); //Dato prima di essere aggiornato
         $newProject->Nome_progetto = $data['Nome_progetto'];
         $newProject->Descrizione_progetto = $data['Descrizione_progetto'];
