@@ -22,7 +22,7 @@ class ProjectsTableSeeder extends Seeder
             $NewProject->Descrizione_progetto = $faker->paragraph();
             $NewProject->Data_inizio_progetto = $faker->dateTime();
             $NewProject->Data_fine_progetto = $faker->dateTime();
-            $NewProject->Immagine = $faker->paragraph();
+            $NewProject->Immagine;
             $NewProject->Nome_sviluppatore = $faker->name();
             $NewProject->save();
         }

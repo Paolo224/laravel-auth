@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::middleware(['auth', 'verified'])->resource('projects', ProjectController::class);
+Route::middleware(['auth', 'verified'])->resource('projects', ProjectController::class);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

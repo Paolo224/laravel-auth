@@ -9,36 +9,36 @@
             </a>
         </div>
     </div>
-    <table class="table table-striped">
+    <table>
         <thead>
             <tr class="bg-dark text-light">
-                <th>ID</th>
-                <th>Nome del progetto</th>
-                <th>Descrizione</th>
-                <th>Data di inizio</th>
-                <th>Data di fine</th>
-                <th>URL dell'immagine</th>
-                <th>Nome dello sviluppatore</th>
-                <th>
-                    
-                </th>
+                <th class="p-2 text-center">ID</th>
+                <th class="p-2 text-center">Nome del progetto</th>
+                <th class="p-2 text-center">Descrizione</th>
+                <th class="p-2 text-center">Data di inizio</th>
+                <th class="p-2 text-center">Data di fine</th>
+                <th class="p-2 text-center">URL dell'immagine</th>
+                <th class="p-2 text-center">Nome dello sviluppatore</th>
+                <th class="p-2 text-center"><i class="fa-solid fa-arrow-down-long"></i></th>
             </tr>
         </thead>
         <tbody>
             @foreach ($projects as $project) 
-            <tr>
-                <th>{{$project->id}}</th>
-                <td>{{$project->Nome_progetto}}</td>
-                <td>{{$project->Descrizione_progetto}}</td>
-                <td>{{$project->Data_inizio_progetto}}</td>
-                <td>{{$project->Data_fine_progetto}}</td>
-                <td>{{$project->Immagine}}</td>
-                <td>{{$project->Nome_sviluppatore}}</td>
-                <td class="text-center">
-                    <a href={{route('projects.show', $project->id)}} class="btn bg-dark text-light btn-sm btn-light">
+            <tr class="border-bottom border-2 border-dark">
+                <th class="p-2 text-center">{{$project->id}}</th>
+                <td class="p-2 text-center">{{$project->Nome_progetto}}</td>
+                <td class="p-2 text-justify">{{$project->Descrizione_progetto}}</td>
+                <td class="p-2 text-center">{{$project->Data_inizio_progetto}}</td>
+                <td class="p-2 text-center">{{$project->Data_fine_progetto}}</td>
+                <td class="p-2 text-center">
+                    <img class="img-fluid" src="{{$project->Immagine}}" alt="">
+                </td>
+                <td class="p-2 text-center">{{$project->Nome_sviluppatore}}</td>
+                <td class="text-center p-3">
+                    <a href={{route('projects.show', $project->id)}} class="mb-2 btn bg-dark text-light btn-sm btn-light">
                         <i class="fa-solid fa-eye"></i>
                     </a>
-                    <a href="{{route('projects.edit', $project->id)}}" class="btn bg-dark text-light btn-sm btn-light">
+                    <a href="{{route('projects.edit', $project->id)}}" class="mb-2 btn bg-dark text-light btn-sm btn-light">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
                     <form action="{{route('projects.destroy', $project->id)}}" method="POST">
