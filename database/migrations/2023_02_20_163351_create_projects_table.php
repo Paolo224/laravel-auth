@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('Descrizione_progetto');
             $table->date('Data_inizio_progetto');
             $table->date('Data_fine_progetto');
-            $table->string('Immagine')->nullable()->default('https://dss4hwpyv4qfp.cloudfront.net/designs/breeze/preview.jpg');
+            $table->string('Immagine'); // TODO https://dss4hwpyv4qfp.cloudfront.net/designs/breeze/preview.jpg
             $table->string('Nome_sviluppatore', 100);
             $table->timestamps();
         });

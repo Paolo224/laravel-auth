@@ -46,7 +46,7 @@ class ProjectController extends Controller
                 'Descrizione_progetto' => 'required|string|min:10',
                 'Data_inizio_progetto' => 'required',
                 'Data_fine_progetto' => 'required',
-                'Immagine' => 'url|max:255',
+                'Immagine' => 'max:255',
                 'Nome_sviluppatore' => 'string|required|min:2|max:100',
             ],
             [
@@ -59,7 +59,6 @@ class ProjectController extends Controller
                 'Descrizione_progetto.min' => 'La descrizione è troppo breve, minimo 10 caratteri!!!',
                 'Data_inizio_progetto.required' => 'La data è obbligatoria!!!',
                 'Data_fine_progetto.required' => 'La data è obbligatoria!!!',
-                'Immagine.url' => 'Inserire un URL valido!!!',
                 'Immagine.max' => 'L\'URL inserito supera il limite di caratteri!!!',
                 'Nome_sviluppatore.required' => 'Il nome è obbligatorio!!!',
                 'Nome_sviluppatore.string' => 'Il nome non può essere di tipo numerico!!!',
@@ -122,7 +121,7 @@ class ProjectController extends Controller
                 'Descrizione_progetto' => 'required|string|min:10',
                 'Data_inizio_progetto' => 'required',
                 'Data_fine_progetto' => 'required',
-                'Immagine' => 'url|max:255',
+                'Immagine' => 'max:255',
                 'Nome_sviluppatore' => 'string|required|min:2|max:100',
             ],
             [
@@ -135,7 +134,6 @@ class ProjectController extends Controller
                 'Descrizione_progetto.min' => 'La descrizione è troppo breve, minimo 10 caratteri!!!',
                 'Data_inizio_progetto.required' => 'La data è obbligatoria!!!',
                 'Data_fine_progetto.required' => 'La data è obbligatoria!!!',
-                'Immagine.url' => 'Inserire un URL valido!!!',
                 'Immagine.max' => 'L\'URL inserito supera il limite di caratteri!!!',
                 'Nome_sviluppatore.required' => 'Il nome è obbligatorio!!!',
                 'Nome_sviluppatore.string' => 'Il nome non può essere di tipo numerico!!!',

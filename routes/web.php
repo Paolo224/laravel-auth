@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\ProjectController as ProjectController;
+use App\Models\Project;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +18,9 @@ use App\Http\Controllers\Admin\ProjectController as ProjectController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $projects = Project::all();
+    //dd($projects);
+    return view('welcome', compact('projects'));
 });
 
 Route::middleware(['auth', 'verified'])->resource('projects', ProjectController::class);
