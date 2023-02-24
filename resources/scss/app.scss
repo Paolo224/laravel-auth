@@ -5,6 +5,21 @@ img.app-logo {
     width: 100px;
 }
 
+img.size-image-index {
+    width: 120px;
+    height: 60px;
+    object-fit: cover;
+    object-position: center;
+}
+
+img.size-image-show {
+    width: 700px;
+    height: 350px;
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 2rem;
+}
+
 div.post {
     display: flex;
     flex-direction: column;

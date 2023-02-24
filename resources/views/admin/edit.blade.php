@@ -2,8 +2,12 @@
 
 @section('content')
 <div class="container mt-3">
-    <div class="col-12 d-flex justify-content-end">
-        <a class="btn btn-primary btn-sm" href="{{route('projects.index')}}">Torna alla lista</a>
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-sm btn-outline-primary mb-2" href={{route('projects.index')}}>
+                Torna alla lista
+            </a>
+        </div>
     </div>
     <div class="row">
         <div class="col-12">
