@@ -12,7 +12,7 @@
             @endif
         </div>
     </div>
-    <form action="{{route('projects.update', $project->id)}}" method="POST">
+    <form action="{{route('projects.update', $project->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -63,7 +63,7 @@
             <label class="form-label">
                 URL immagine
             </label>
-            <input type="text" class="form-control @error('Immagine') is-invalid @enderror" name="Immagine" value="{{old('Immagine') ?? $project->Immagine}}">
+            <input type="file" class="form-control @error('Immagine') is-invalid @enderror" name="Immagine" value="{{old('Immagine') ?? $project->Immagine}}">
             @error('Immagine') 
                 <div class="invalid-feedback">
                     {{$message}}

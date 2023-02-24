@@ -150,7 +150,7 @@ class ProjectController extends Controller
         $newProject->Descrizione_progetto = $data['Descrizione_progetto'];
         $newProject->Data_inizio_progetto = $data['Data_inizio_progetto'];
         $newProject->Data_fine_progetto = $data['Data_fine_progetto'];
-        $newProject->Immagine = $data['Immagine'];
+        $newProject->Immagine = Storage::put('uploads', $data['Immagine']);
         $newProject->Nome_sviluppatore = $data['Nome_sviluppatore'];
         $newProject->save();
 
