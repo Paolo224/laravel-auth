@@ -4,7 +4,7 @@
 <div class="container post">
     @foreach ($projects as $project)    
     <div class="box" style="
-    background: url({{$project->Immagine}});
+    background: url({{asset('storage/' . $project->Immagine)}});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

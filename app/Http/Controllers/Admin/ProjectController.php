@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\Exists;
 
 class ProjectController extends Controller
 {
@@ -73,7 +74,11 @@ class ProjectController extends Controller
         $newProject->Descrizione_progetto = $data['Descrizione_progetto'];
         $newProject->Data_inizio_progetto = $data['Data_inizio_progetto'];
         $newProject->Data_fine_progetto = $data['Data_fine_progetto'];
-        $newProject->Immagine = Storage::put('uploads', $data['Immagine']);
+        if ($request->hasFile('Immagine')) {
+            $newProject->Immagine = Storage::put('uploads', $data['Immagine']);
+        } else {
+            $newProject->Immagine = 'default-image.jpg';
+        }
         $newProject->Nome_sviluppatore = $data['Nome_sviluppatore'];
         $newProject->save();
 
@@ -149,7 +154,10 @@ class ProjectController extends Controller
         $newProject->Descrizione_progetto = $data['Descrizione_progetto'];
         $newProject->Data_inizio_progetto = $data['Data_inizio_progetto'];
         $newProject->Data_fine_progetto = $data['Data_fine_progetto'];
-        $newProject->Immagine = Storage::put('uploads', $data['Immagine']);
+        if ($request->hasFile('Immagine')) {
+            Storage::delete($request->Immagine);
+            $newProject->Immagine = Storage::put('uploads', $data['Immagine']);
+        }
         $newProject->Nome_sviluppatore = $data['Nome_sviluppatore'];
         $newProject->save();
 
@@ -162,7 +170,7 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Project $project)
     {
         $project = Project::findOrFail($id);
         $project->delete();
