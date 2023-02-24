@@ -20,7 +20,7 @@
                     <p class="card-text">{{$project->Descrizione_progetto}}</p>
                 </div>
                 <div class="img">
-                    <img class="w-50" src="https://dss4hwpyv4qfp.cloudfront.net/designs/breeze/preview.jpg{{-- {{$project->Immagine}} --}}" alt="">
+                    <img class="w-50" src="{{asset('storage/' . $project->Immagine )}}" alt="">
                 </div>
                 <div class="card-footer text-muted">
                     Inizio: {{$project->Data_inizio_progetto}}

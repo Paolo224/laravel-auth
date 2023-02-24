@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -46,7 +47,7 @@ class ProjectController extends Controller
                 'Descrizione_progetto' => 'required|string|min:10',
                 'Data_inizio_progetto' => 'required',
                 'Data_fine_progetto' => 'required',
-                'Immagine' => 'max:255',
+                'Immagine' => 'required|image',
                 'Nome_sviluppatore' => 'string|required|min:2|max:100',
             ],
             [
@@ -59,7 +60,8 @@ class ProjectController extends Controller
                 'Descrizione_progetto.min' => 'La descrizione è troppo breve, minimo 10 caratteri!!!',
                 'Data_inizio_progetto.required' => 'La data è obbligatoria!!!',
                 'Data_fine_progetto.required' => 'La data è obbligatoria!!!',
-                'Immagine.max' => 'L\'URL inserito supera il limite di caratteri!!!',
+                'Immagine.required' => 'Immagine obbligatoria!!!',
+                'Immagine.image' => 'Immagine non valida!!!',
                 'Nome_sviluppatore.required' => 'Il nome è obbligatorio!!!',
                 'Nome_sviluppatore.string' => 'Il nome non può essere di tipo numerico!!!',
                 'Nome_sviluppatore.min' => 'Il nome è troppo breve, minimo 2 caratteri!!!',
@@ -72,7 +74,7 @@ class ProjectController extends Controller
         $newProject->Descrizione_progetto = $data['Descrizione_progetto'];
         $newProject->Data_inizio_progetto = $data['Data_inizio_progetto'];
         $newProject->Data_fine_progetto = $data['Data_fine_progetto'];
-        $newProject->Immagine = $data['Immagine'];
+        $newProject->Immagine = Storage::put('uploads', $data['Immagine']);
         $newProject->Nome_sviluppatore = $data['Nome_sviluppatore'];
         $newProject->save();
 
@@ -89,6 +91,7 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Project::findOrFail($id);
+        //dd($project);
         return view('admin.show', compact('project'));
     }
 

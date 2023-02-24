@@ -31,7 +31,7 @@
                 <td class="p-2 text-center">{{$project->Data_inizio_progetto}}</td>
                 <td class="p-2 text-center">{{$project->Data_fine_progetto}}</td>
                 <td class="p-2 text-center">
-                    <img class="img-fluid" src="{{$project->Immagine}}" alt="">
+                    <img class="img-fluid" src="{{asset('storage/' . $project->Immagine )}}" alt="">
                 </td>
                 <td class="p-2 text-center">{{$project->Nome_sviluppatore}}</td>
                 <td class="text-center p-3">
